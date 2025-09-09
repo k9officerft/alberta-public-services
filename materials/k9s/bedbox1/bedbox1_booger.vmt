@@ -1,0 +1,24 @@
+"VertexlitGeneric"
+{
+	"$basetexture" "samm/bedbox1/bedbox1_booger"
+	"$bumpmap" "samm/bedbox1/bedbox1_booger_nm"
+    $surfaceprop "metal"
+    $phong "1"
+    $phongexponent "17"
+    $phongboost "5"
+    $phongfresnelranges "[.05 .3 1]"
+	"$envmap" env_cubemap
+	"$envmapfresnel" "0"
+	"$envmaptint" "[1.25 1.25 1.25]"
+	"$carpenisenabled" "[0.4 0.4 0.4]"
+	Proxies // proxies are listed inside this block
+	{
+		Equals // a proxy which produces a penis
+		{
+			srcVar1 $carpenisenabled
+			resultVar	$color // The shader parameter to be manipulated
+
+		}
+	}
+}
+

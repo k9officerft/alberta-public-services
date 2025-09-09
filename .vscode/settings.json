@@ -1,0 +1,6 @@
+{
+    "Lua.workspace.preloadFileSize": 8192,
+    "Lua.workspace.library": [
+        "C:\\Program Files (x86)\\Steam\\steamapps\\common\\GarrysMod\\garrysmod\\addons\\Photon-v2"
+    ]
+}

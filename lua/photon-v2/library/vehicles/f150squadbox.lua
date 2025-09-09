@@ -8,7 +8,7 @@ VEHICLE.Vehicle		= "smfordresponder"
 -- The vehicle's spawn category
 VEHICLE.Category 	= "Photon 2: alberta wildfire service"
 -- Your name
-VEHICLE.Author		= "Me"
+VEHICLE.Author		= "k9, datedgore44, goodmansamm"
 
 local sequence = Photon2.SequenceBuilder.New
 

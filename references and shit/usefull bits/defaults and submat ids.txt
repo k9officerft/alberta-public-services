@@ -1,0 +1,25 @@
+dom tint: SubMaterials = {
+                        ["sentry/props/dominator/dom_glass"] = "sentry/sleepy_police/dom_glass_black",
+                    },
+xlp tint:   SubMaterials = {
+                            ["sentry/props/inneredgexlp/chrome"] = "sentry/sleepy_police/xlpchrome",
+                            ["sentry/props/inneredgexlp/chrome_dull"] = "sentry/sleepy_police/xlpchrome_dull",
+                            ["sentry/props/inneredgexlp/linear_diffuser_refract"] = "sentry/sleepy_police/glass_black",
+                        },
+tracer tint:   SubMaterials = {
+                        ["sentry/shared/glass"] = "sentry/sleepy_police/glass_black",
+                    },
+ion tint:  SubMaterials = {
+            ["sentry/props/ion_photon/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+            ["sentry/props/ion_photon/ion"] = "sentry/sleepy_police/ion_black",
+        },
+spitfire tint: SubMaterials = {
+						["schmal/photon/whelen_spitfire/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+						["schmal/photon/whelen_spitfire/ion"] = "sentry/sleepy_police/ion_black",
+					},
+vertex tint: SubMaterials = {
+						["anemolis_shared/glass"] = "sentry/sleepy_police/glass_black",
+					},
+
+
+

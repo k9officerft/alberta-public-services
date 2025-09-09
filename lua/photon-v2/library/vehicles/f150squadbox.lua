@@ -1,13 +1,13 @@
 if (Photon2.ReloadVehicleFile()) then return end
 local VEHICLE = Photon2.LibraryVehicle()
 
--- The readable title of your vehicle
+ 
 VEHICLE.Title 		= "f150 boxes"
--- The vehicle from which yours is based upon
+ 
 VEHICLE.Vehicle		= "smfordresponder"
--- The vehicle's spawn category
+ 
 VEHICLE.Category 	= "Photon 2: alberta wildfire service"
--- Your name
+ 
 VEHICLE.Author		= "k9, datedgore44, goodmansamm"
 
 local sequence = Photon2.SequenceBuilder.New
@@ -37,11 +37,10 @@ VEHICLE.Schema = {
 VEHICLE.Equipment = {
 	 {
         Category = "Lights",
-        -- Options are different choices within the Lightbar category. We're starting off 
-        -- with just a single option.
+      
         Options = {
            {
-              -- This is simply the text that players see. It can say whatever you like.
+ 
               Option = "legend",
               Components = {
                  {
@@ -149,11 +148,10 @@ VEHICLE.Equipment = {
       },
 	   {
         Category = "ext",
-        -- Options are different choices within the Lightbar category. We're starting off 
-        -- with just a single option.
+      
         Options = {
            {
-              -- This is simply the text that players see. It can say whatever you like.
+ 
               Option = "1",
               Components = {
                  {
@@ -258,8 +256,7 @@ VEHICLE.Equipment = {
       },
     {
         Category = "settup",
-        -- Options are different choices within the Lightbar category. We're starting off 
-        -- with just a single option.
+      
         Options = {
           {
 				Option = "1",

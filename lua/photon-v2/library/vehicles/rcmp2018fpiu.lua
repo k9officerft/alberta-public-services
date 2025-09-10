@@ -3,7 +3,7 @@ local VEHICLE = Photon2.LibraryVehicle()
 
 VEHICLE.Title 		= "2018 fpiu"
 
-VEHICLE.Vehicle		= ""
+VEHICLE.Vehicle		= "sm16fpiu"
 
 VEHICLE.Category 	= "Photon 2: alberta rcmp"
 

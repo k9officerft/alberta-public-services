@@ -1,0 +1,11 @@
+possibly will get sgm to make the vehicles in here, apart from those do whatever you feel like with these
+
+
+parts:
+https://www.lcpdfr.com/downloads/dev-resources/vehicle-parts/42266-panorama-mako-5g-antenna
+https://www.lcpdfr.com/downloads/dev-resources/vehicle-parts/37799-dev-ford-e350-panel-van
+https://www.lcpdfr.com/downloads/dev-resources/vehicle-parts/31452-generic-winch
+
+
+cars:
+https://www.lcpdfr.com/downloads/dev-resources/vehicle-parts/33899-mce-scale-and-monitor

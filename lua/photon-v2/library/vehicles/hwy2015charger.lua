@@ -26,12 +26,64 @@ VEHICLE.Equipment = {
                     Position = Vector( 0, -18, 75.7 ),
                     Angles = Angle( .3, 90, 0 ),
                     Scale = 1,
+                      Segments = {
+						 LIGHT = {
+							 FrameDuration = 1/20,
+							 Frames = {
+								 [1] = "[R] 1" ,
+								 [2] = "[B] 2",
+								 [3] = "[A] 1",
+								 [4] = "[A] 2",
+							 },
+							 Sequences = {
+								 ["CODE3"] = sequence():SetTiming(1/25):FlashHold(1, 3, 5):FlashHold(2, 3, 5),
+								 ["CODE2"] = sequence():SetTiming(1/20):FlashHold(3, 2, 6):FlashHold(4, 2, 6),
+							 }
+						 },
+						TA = {
+						 FrameDuration = 1/4,
+						 Frames = {
+							 [1] = "[A] 1",
+							 [2] = "[A] 1",
+							 [3] = "[A] 1",
+							 [4] = "[A] 1",
+							 [5] = "[A] 1",
+							 [6] = "[A] 1",
+							 [7] = "[A] 1",
+							 [8] = "[A] 1",
+							 [9] = "[A] 1",
+							 [10] = "[A] 1",
+							 
+						 },
+						 Sequences = {
+							 ["right"] = {5,6,7,8,9,10,0,10,0,10,0,10,0},
+							 ["left"] = {10,9,8,7,6,5,0,5,0,5,0,5,0},
+							 ["cenout"] = {1,2,3,4,0,4,0,4,0,4,0},
+						 }
+					 },
+					},
+				   InputActions = {
+					   ["Emergency.Warning"] = {
+                           ["MODE1"] = {},
+						   ["MODE2"] = { LIGHT = "CODE2",},
+						   ["MODE3"] = { LIGHT = "CODE3",},
+					   },
+					   ["Emergency.Directional"] = {
+						 ["LEFT"] = { TA = "left" },
+						 ["RIGHT"] = { TA = "right" },
+						 ["CENOUT"] = { TA = "cenout" },
+					 },
+                },
                     Bones = {
                         ["clamp_norm_left"] = {  Vector(0.6, -0, -.30), Angle(5.6, -0.9, 0), 1 },
                         ["clamp_norm_right"] = { Vector(-0.6, -0, -.30), Angle(-5.6, 0.9, 0), 1 },
                         ["foot_norm_left"] = {  Vector(-0.8, 0, 0), Angle(7, 0, 0), 1 },
                         ["foot_norm_right"] = { Vector(0.8, 0, 0), Angle(-7, 0, 0), 1 },
                     },
+                    BodyGroups = {
+									 ["Takedown"] = 1,
+						},
+                    
                  },
                  
               }

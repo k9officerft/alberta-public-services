@@ -52,20 +52,18 @@ VEHICLE.Equipment = {
                     Position = Vector( 0, 43, 89. ),
                     Angles = Angle( 0, 90, 0 ),
                     Scale = .9,
-					Segments = {
+				 Segments = {
 						 Light = {
-							 FrameDuration = 1/20,
+							 FrameDuration = 1/9,
 							 Frames = {
-								 [1] = "[R] 5 7 9 11 16 18 20 [A] 22 24 26 3" ,
-								 [2] = "[R] 6 8 10 12 15 17 19 [A] 21 23 25 4",
-								 [3] = "[R] 7 8 [A] 18 17 16 15 ",
+								 [1] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22" ,
+								 [2] = "[A] 3 4 23 24",
+								 [3] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 3 4 25 26 23 24",
 								 [4] = "[A] 22 24 26 3",
 								 [5] = "[A] 21 23 25 4 ",
 							 },
 							 Sequences = {
-								 ["RED"] = sequence():SetTiming(1/25):FlashHold(1, 3, 5):FlashHold(2, 3, 5),
-								 ["AMB"] = sequence():SetTiming(1/20):FlashHold(4, 2, 6):FlashHold(5, 2, 6),
-								 ["AMBS"] = {}
+								["ON"] = {1,0,1,2,1,0,1,3,0}
 							 }
 						 },
                     Tdkn = {
@@ -102,25 +100,23 @@ VEHICLE.Equipment = {
 					},
 				   InputActions = {
 					   ["Emergency.Warning"] = {
-						   ["MODE1"] = { Light = "AMB", },
-						   ["MODE3"] = { Light = "RED", Tdkn = "RED"},
+						   ["MODE1"] = { },
+						   ["MODE2"] = { },
+						   ["MODE3"] = { Light = "ON"},
 					   },
 					   ["Emergency.Directional"] = {
 						 ["LEFT"] = { TA = "left" },
 						 ["RIGHT"] = { TA = "right" },
 						 ["CENOUT"] = { TA = "cenout" },
 					 },
-					   ["Emergency.Marker"]  = {
-						["ON"] = { Light = "AMBS",},
-					},
 					
 				   },
 					Bones = {
 							["foot_right"] = { Vector(0, 0, 0), Angle(2, 0, 0), 1},
-							["foot_left"] = { Vector(-0, 0, 0), Angle(-2, 0, 0), 1 },
+							["foot_left"] = { Vector(-0, 0, 0), Angle(-5, 0, -1), 1 },
 						},
 					BodyGroups = {
-									 ["feet"] = 1,
+									 ["feet"] = 2,
 						},
 					SubMaterials = {
 							--adjust this one to adjust the skin
@@ -142,12 +138,71 @@ VEHICLE.Equipment = {
                     Position = Vector( 0, 43, 89. ),
                     Angles = Angle( 0, 90, 0 ),
                     Scale = .9,
+					 Segments = {
+						 Light = {
+							 FrameDuration = 1/9,
+							 Frames = {
+								 [1] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22" ,
+								 [2] = "[A] 3 4 23 24",
+								 [3] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 3 4 25 26 23 24",
+								 [4] = "[A] 22 24 26 3",
+								 [5] = "[A] 21 23 25 4 ",
+							 },
+							 Sequences = {
+								["ON"] = {1,0,1,2,1,0,1,3,0}
+							 }
+						 },
+                    Tdkn = {
+							 FrameDuration = 1/20,
+							 Frames = {
+								 [1] = "[W] 1 14" ,
+								 [2] = "[W] 2 13",
+							 },
+							 Sequences = {
+								 ["RED"] = sequence():SetTiming(1/25):FlashHold(1, 2, 2):FlashHold(2, 2, 2),
+							 }
+						 },
+						TA = {
+						 FrameDuration = 1/4,
+						 Frames = {
+							 [1] = "[A] 26 25 ",
+							 [2] = "[A] 24 23",
+							 [3] = "[A] 22 21",
+							 [4] = "[A] 22 21",
+							 [5] = "[A] 21",
+							 [6] = "[A] 23",
+							 [7] = "[A] 25",
+							 [8] = "[A] 26",
+							 [9] = "[A] 24",
+							 [10] = "[A] 22",
+							 
+						 },
+						 Sequences = {
+							 ["right"] = {5,6,7,8,9,10,0,10,0,10,0,10,0},
+							 ["left"] = {10,9,8,7,6,5,0,5,0,5,0,5,0},
+							 ["cenout"] = {1,2,3,4,0,4,0,4,0,4,0},
+						 }
+					 },
+					},
+				   InputActions = {
+					   ["Emergency.Warning"] = {
+						   ["MODE1"] = { },
+						   ["MODE2"] = { },
+						   ["MODE3"] = { Light = "ON"},
+					   },
+					   ["Emergency.Directional"] = {
+						 ["LEFT"] = { TA = "left" },
+						 ["RIGHT"] = { TA = "right" },
+						 ["CENOUT"] = { TA = "cenout" },
+					 },
+					
+				   },
 					Bones = {
 							["foot_right"] = { Vector(0, 0, 0), Angle(2, 0, 0), 1},
-							["foot_left"] = { Vector(-0, 0, 0), Angle(-2, 0, 0), 1 },
+							["foot_left"] = { Vector(-0, 0, 0), Angle(-5, 0, -1), 1 },
 						},
 					BodyGroups = {
-									 ["feet"] = 1,
+									 ["feet"] = 2,
 						},
 					SubMaterials = {
 							--adjust this one to adjust the skin
@@ -176,23 +231,23 @@ VEHICLE.Equipment = {
                   	Position = Vector( 16.1, 152, 50.5 ),
                     Angles = Angle( 0, 0, 0 ),
                     Scale = 1,
-				 Segments = {
+				Segments = {
                         Light = {
                             Frames = {
-                                [1] = "[R] 1 ",
+                                [1] = "[A] 1 ",
                                 [2] = "[A] 1",
 
                                 
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/22):FlashHold(1, 2, 4):FlashHold(0, 2, 4),
-                                ["PARK"] = sequence():SetTiming(1/22):FlashHold(0, 2, 4):FlashHold(2, 2, 4),
                                  }
                              },
                          },
-                         InputActions = {
+                        InputActions = {
                              ["Emergency.Warning"] = {
-                                 ["MODE1"] = { Light = "PARK", },
+                                 ["MODE1"] = { },
+								 ["MODE2"] = { Light = "CODE3",},
                                  ["MODE3"] = { Light = "CODE3",  },
                              },
                          },
@@ -207,20 +262,20 @@ VEHICLE.Equipment = {
 					 Segments = {
                         Light = {
                             Frames = {
-                                [1] = "[R] 1 ",
+                                [1] = "[A] 1 ",
                                 [2] = "[A] 1",
 
                                 
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/22):FlashHold(0, 2, 4):FlashHold(1, 2, 4),
-                                ["PARK"] = sequence():SetTiming(1/22):FlashHold(2, 2, 4):FlashHold(0, 2, 4),
                                  }
                              },
                          },
-                         InputActions = {
+                        InputActions = {
                              ["Emergency.Warning"] = {
-                                 ["MODE1"] = { Light = "PARK",},
+                                 ["MODE1"] = { },
+								 ["MODE2"] = { Light = "CODE3",},
                                  ["MODE3"] = { Light = "CODE3",  },
                              },
                          },

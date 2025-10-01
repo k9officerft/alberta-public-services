@@ -37,9 +37,9 @@ VEHICLE.Equipment = {
               Components = {
                  {
                    
-                    Component = "photon_whe_legacy_48",
-                    Position = Vector( 0, -18, 75.7 ),
-                    Angles = Angle( .3, 90, 0 ),
+                    Component = "photon_whe_legacy_54",
+                Position = Vector( 0, 10, 93.7 ),
+                        Angles = Angle( 2, 90, 0 ),
                     Scale = 1,
                     Bones = {
                         ["clamp_norm_left"] = {  Vector(0.6, -0, -.30), Angle(5.6, -0.9, 0), 1 },

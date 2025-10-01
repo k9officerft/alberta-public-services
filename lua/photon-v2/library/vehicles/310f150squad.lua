@@ -27,13 +27,7 @@ VEHICLE.BodyGroups = {
 	["Pushbar"] = 0,
 }
 
-VEHICLE.Schema = {
-    ["Emergency.Warning"] = {
-        { Label = "PRIMARY" },
-        { Mode = "MODE1", Label = "scene" },
-        { Mode = "MODE3", Label = "response" },
-    }
-}
+
 
 VEHICLE.Equipment = {
     {
@@ -52,18 +46,16 @@ VEHICLE.Equipment = {
                 Scale = 1,
                 Segments = {
 						 Light = {
-							 FrameDuration = 1/20,
+							 FrameDuration = 1/9,
 							 Frames = {
-								 [1] = "[R] 5 7 9 11 16 18 20 [A] 22 24 26 3" ,
-								 [2] = "[R] 6 8 10 12 15 17 19 [A] 21 23 25 4",
-								 [3] = "[R] 7 8 [A] 18 17 16 15 ",
+								 [1] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22" ,
+								 [2] = "[A] 3 4 23 24",
+								 [3] = "[A] 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 3 4 25 26 23 24",
 								 [4] = "[A] 22 24 26 3",
 								 [5] = "[A] 21 23 25 4 ",
 							 },
 							 Sequences = {
-								 ["RED"] = sequence():SetTiming(1/25):FlashHold(1, 3, 5):FlashHold(2, 3, 5),
-								 ["AMB"] = sequence():SetTiming(1/20):FlashHold(4, 2, 6):FlashHold(5, 2, 6),
-								 ["AMBS"] = {}
+								["ON"] = {1,0,1,2,1,0,1,3,0}
 							 }
 						 },
                     Tdkn = {
@@ -100,25 +92,23 @@ VEHICLE.Equipment = {
 					},
 				   InputActions = {
 					   ["Emergency.Warning"] = {
-						   ["MODE1"] = { Light = "AMB", },
-						   ["MODE3"] = { Light = "RED", Tdkn = "RED"},
+						   ["MODE1"] = { },
+						   ["MODE2"] = { },
+						   ["MODE3"] = { Light = "ON"},
 					   },
 					   ["Emergency.Directional"] = {
 						 ["LEFT"] = { TA = "left" },
 						 ["RIGHT"] = { TA = "right" },
 						 ["CENOUT"] = { TA = "cenout" },
 					 },
-					   ["Emergency.Marker"]  = {
-						["ON"] = { Light = "AMBS",},
-					},
 					
 				   },
 					Bones = {
-							["foot_right"] = { Vector(-1, 0, 0), Angle(5, 0, 0), 1},
-							["foot_left"] = { Vector(1, 0, 0), Angle(-5, 0, 0), 1 },
+							["foot_right"] = { Vector(0, 0, 0), Angle(2, 0, 0), 1},
+							["foot_left"] = { Vector(-0, 0, 0), Angle(-5, 0, -1), 1 },
 						},
 					BodyGroups = {
-									 ["feet"] = 1,
+									 ["feet"] = 2,
 						},
 					SubMaterials = {
 							--adjust this one to adjust the skin
@@ -148,23 +138,23 @@ VEHICLE.Equipment = {
                   Position = Vector( -12, 132.4, 47.3),
                   Angles = Angle( 00, 07, 0 ),
                   Scale = 1,
-                    Segments = {
+                  Segments = {
                         Light = {
                             Frames = {
-                                [1] = "[R] 1 ",
+                                [1] = "[A] 1 ",
                                 [2] = "[A] 1",
 
                                 
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/22):FlashHold(1, 2, 4):FlashHold(0, 2, 4),
-                                ["PARK"] = sequence():SetTiming(1/22):FlashHold(0, 2, 4):FlashHold(2, 2, 4),
                                  }
                              },
                          },
-                         InputActions = {
+                        InputActions = {
                              ["Emergency.Warning"] = {
-                                 ["MODE1"] = { Light = "PARK", },
+                                 ["MODE1"] = { },
+								 ["MODE2"] = { Light = "CODE3",},
                                  ["MODE3"] = { Light = "CODE3",  },
                              },
                          },
@@ -176,23 +166,23 @@ VEHICLE.Equipment = {
                      Position = Vector( 12, 132.4, 47.3),
                   Angles = Angle( 00, -7, 0 ),
                     Scale = 1,
-                    Segments = {
+                   Segments = {
                         Light = {
                             Frames = {
-                                [1] = "[R] 1 ",
+                                [1] = "[A] 1 ",
                                 [2] = "[A] 1",
 
                                 
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/22):FlashHold(0, 2, 4):FlashHold(1, 2, 4),
-                                ["PARK"] = sequence():SetTiming(1/22):FlashHold(2, 2, 4):FlashHold(0, 2, 4),
                                  }
                              },
                          },
-                         InputActions = {
+                        InputActions = {
                              ["Emergency.Warning"] = {
-                                 ["MODE1"] = { Light = "PARK",},
+                                 ["MODE1"] = { },
+								 ["MODE2"] = { Light = "CODE3",},
                                  ["MODE3"] = { Light = "CODE3",  },
                              },
                          },
@@ -208,20 +198,20 @@ VEHICLE.Equipment = {
                     Segments = {
                         Light = {
                             Frames = {
-                                [1] = "[R] 1 ",
+                                [1] = "[A] 1 ",
                                 [2] = "[A] 2",
 
                                 
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/22):FlashHold(1, 2, 4):FlashHold(0, 2, 4),
-                                ["PARK"] = sequence():SetTiming(1/22):FlashHold(0, 2, 4):FlashHold(2, 2, 4),
                                  }
                              },
                          },
-                         InputActions = {
+                        InputActions = {
                              ["Emergency.Warning"] = {
-                                 ["MODE1"] = { Light = "PARK", },
+                                 ["MODE1"] = { },
+								 ["MODE2"] = { Light = "CODE3",},
                                  ["MODE3"] = { Light = "CODE3",  },
                              },
                          },
@@ -236,6 +226,32 @@ VEHICLE.Equipment = {
 					Phase = 180
                     
                  },
+                 {
+                        Component = "photon_standard_smf15018",
+                        Segments = {
+                            ["WIGWAG_REAR"] = {
+                                Off = "PASS",
+                                Frames = {
+                                    [1] = "[~SW] 11 [~R] 10 18",
+                                    [2] = "[~SW] 12 [~R] 9 17",
+                                    [3] = "[PASS] 9 10 17 18"
+                                },
+                                Sequences = {
+                                    ["ALT"] = sequence():Alternate( 1, 2, 7 ),
+                                    ["CUT"] = { 3 },
+                                }
+                            },
+                        },
+                        InputActions = {
+                            ["Emergency.Warning"] = {
+                                ["MODE1"] = {["WIGWAG"] = "ALT", ["WIGWAG_REAR"] = "ALT"},
+								 ["MODE2"] = {["WIGWAG"] = "ALT", ["WIGWAG_REAR"] = "ALT"},
+                                ["MODE3"] = {["WIGWAG"] = "ALT", ["WIGWAG_REAR"] = "ALT"},
+                            },
+                           
+                        },
+                        
+                    },
                  
               }
            },

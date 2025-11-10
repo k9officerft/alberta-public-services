@@ -18,7 +18,26 @@ VEHICLE.Equipment = {
         Category = "primary",
         Options = {
            {
-              Option = "lightbar",
+              Option = "liberty",
+              Components = {
+                 {
+                   
+                    Component = "photon_whe_liberty_48",
+                    Position = Vector( 0, -18, 75.7 ),
+                    Angles = Angle( .3, 90, 0 ),
+                    Scale = 1,
+                    Bones = {
+                        ["clamp_norm_left"] = {  Vector(0.6, -0, -.30), Angle(5.6, -0.9, 0), 1 },
+                        ["clamp_norm_right"] = { Vector(-0.6, -0, -.30), Angle(-5.6, 0.9, 0), 1 },
+                        ["foot_norm_left"] = {  Vector(-0.8, 0, 0), Angle(7, 0, 0), 1 },
+                        ["foot_norm_right"] = { Vector(0.8, 0, 0), Angle(-7, 0, 0), 1 },
+                    },
+                 },
+                 
+              }
+           },
+             {
+              Option = "valor",
               Components = {
                  {
                    

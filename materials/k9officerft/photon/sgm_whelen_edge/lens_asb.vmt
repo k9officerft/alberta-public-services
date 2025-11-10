@@ -1,0 +1,5 @@
+"DecalModulate"
+{
+	"$basetexture" "k9officerft/photon/sgm_whelen_edge/lens_asb"
+	"$model" "1"
+}

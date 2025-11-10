@@ -44,6 +44,12 @@ VEHICLE.Equipment = {
                     Position = Vector( 0, -47.5, 93.5 ),
                     Angles = Angle( 0, 90, 0 ),
                     Scale = 1,
+                     Bones = {
+                        ["clamp_left"] = {  Vector(0.2, -0, -.70), Angle(2, -0, 0), 1 },
+                        ["clamp_right"] = { Vector(-0.2, -0, -.70), Angle(-2, 0, 0), 1 },
+                        ["foot_left"] = {  Vector(-2.4, 0, .2), Angle(8, 0, 0), 1 },
+                        ["foot_right"] = { Vector(2.4, 0, .2), Angle(-8, 0, 0), 1 },
+                    },
                     BodyGroups = {
 						["Feet"] = 2,
                         ["Clamps"] = 2,
@@ -706,6 +712,13 @@ VEHICLE.Equipment = {
 					Angles = Angle( 0, 0, 0 ),
 					Scale = 1,
 				 },
+                 {
+						-- Adds realistic window tinting and is skinnable
+						Model = "models/schmal/smf15018_glass.mdl",
+						Position = Vector( 0, 0, 0 ),
+						Angles = Angle( 0, 180, 0 ),
+						Scale = 1,
+					}
             
              
          
@@ -737,7 +750,10 @@ VEHICLE.Equipment = {
                         },
                         
                     },
-                }
+                },
+				SubMaterials = {
+					{ Id = 23, Material = "photon/common/blank" },
+				},
 			}
 		}
 	},

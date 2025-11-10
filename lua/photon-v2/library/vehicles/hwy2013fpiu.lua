@@ -15,14 +15,14 @@ local sequence = Photon2.SequenceBuilder.New
 
 VEHICLE.Equipment = {
     {
-        Category = "primary",
+        Category = "lightbar",
         Options = {
            {
               Option = "lightbar",
               Components = {
                  {
                    
-                    Component = "photon_whe_legacy_48",
+                    Component = "photon_whe_liberty_48",
                     Position = Vector( 0, -18, 75.7 ),
                     Angles = Angle( .3, 90, 0 ),
                     Scale = 1,

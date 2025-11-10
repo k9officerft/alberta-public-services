@@ -21,7 +21,7 @@ VEHICLE.BodyGroups = {
 	["Pushbar"] = 0,
 }
 
-
+VEHICLE.Siren = { "whelen_epsilon" }
 
 VEHICLE.Equipment = {
      {
@@ -124,7 +124,7 @@ VEHICLE.Equipment = {
            {
               Option = "no",
                  BodyGroups = {
-					{ BodyGroup = "Wheels", Value = 1},
+					{ BodyGroup = "Partition", Value = 1},
 				},
                  
                  
@@ -143,8 +143,8 @@ VEHICLE.Equipment = {
                  {
                    
                     Component = "photon_whe_legacy_54",
-                Position = Vector( 0, 10, 92.4 ),
-                        Angles = Angle( 2, 90, 0 ),
+                    Position = Vector( 0, 10, 92.4 ),
+                    Angles = Angle( 2, 90, 0 ),
                     Scale = 0.96,
                     Bones = {
                         ["clamp_left"] = {  Vector(0.2, -0, -.70), Angle(2, -0, 0), 1 },
@@ -223,7 +223,7 @@ VEHICLE.Equipment = {
                                 [2] = "[B]  2 4 6 8 30 32 34 36 38 40 10 12 14 16 18 20 22 24 26 28 44 42 46",
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Steady(2, 4):Off(1):Steady(2, 5):Off(1):Steady(2, 5),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2),
                             }
                         },
                        
@@ -323,7 +323,7 @@ VEHICLE.Equipment = {
                                    
                                 },
                                 Sequences = {
-                                    ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Steady(2, 4):Off(1):Steady(2, 5):Off(1):Steady(2, 5),
+                                    ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2),
                                 }
                             },
                           },
@@ -361,12 +361,12 @@ VEHICLE.Equipment = {
                       Segments = {
                         Light = {
                             Frames = {
-                                [3] = "[R] 1 ",
+                                [1] = "[R] 1 ",
 
                                 
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(3, 4):Off(1):Steady(3, 5):Off(1):Steady(3, 5):Off(16),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 0),
                                  }
                              },
                          },
@@ -385,16 +385,16 @@ VEHICLE.Equipment = {
                     Position = Vector( 14, 129.4, 44.5),
                      Angles = Angle( -0.4, -8, 0 ),
                      Scale = 0.8,
-                     Phase = 180,
+
                       Segments = {
                         Light = {
                             Frames = {
-                                [3] = "[B] 1 ",
+                                [2] = "[B] 1 ",
 
                                 
                             },
                             Sequences = {
-                                ["CODE3"] =  sequence():SetTiming(1/40):Steady(3, 4):Off(1):Steady(3, 5):Off(1):Steady(3, 5):Off(16),
+                                ["CODE3"] =  sequence():SetTiming(1/17):TripleFlash(0, 2),
                                  }
                              },
                          },
@@ -443,7 +443,7 @@ VEHICLE.Equipment = {
                      Position = Vector( 14, 129.4, 44.5),
                      Angles = Angle( -0.4, -8, 0 ),
                      Scale = 0.8,
-                     Phase = 180,
+
                  
                   },
                    {
@@ -582,11 +582,11 @@ VEHICLE.Equipment = {
                         Light = {
                             FrameDuration = 1/20,
                             Frames = {
-                                [1] = "[R] 1  3  5 2  4  6 ",
-                                [2] = "",
+                                [1] = "[R] 1  3  5",
+                                [2] = "[B] 2  4  6 ",
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Steady(2, 4):Off(1):Steady(2, 5):Off(1):Steady(2, 5),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2),
                             }
                         },
                      },
@@ -618,7 +618,7 @@ VEHICLE.Equipment = {
                                 [2] = "[B] 2  4  6",
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Steady(2, 4):Off(1):Steady(2, 5):Off(1):Steady(2, 5),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2),
                             }
                         },
                      },
@@ -635,14 +635,14 @@ VEHICLE.Equipment = {
             }
            },
            {
-              Option = "tripple flash 2",
+              Option = "tripple flash 2, smoked",
               Components = {
                 {
                     Component = "photon_whe_tracer6",
                     Position = Vector(40.5, 3, 22.2),
                      Angles = Angle(-1, -90, 0),
                     Scale = 1.1,
-                    Phase = 180,
+
                      RenderGroup = RENDERGROUP_OPAQUE,
                     Segments = {
                         Light = {
@@ -651,7 +651,8 @@ VEHICLE.Equipment = {
                                 [1] = "[B] 1 2 3 4 5 6",
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Off(16),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(0, 1),
+                            
                             }
                         },
                      },
@@ -663,6 +664,9 @@ VEHICLE.Equipment = {
                         },
                     }, 
                     
+                    	SubMaterials = {
+                        ["sentry/shared/glass"] = "sentry/sleepy_police/glass_black",
+                    },
                     
                     
                  },
@@ -683,7 +687,7 @@ VEHICLE.Equipment = {
                                 [1] = "[R] 1 2 3 4 5 6",
                             },
                             Sequences = {
-                                ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Off(16),
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 0),
                             }
                         },
                      },
@@ -694,6 +698,9 @@ VEHICLE.Equipment = {
                             ["MODE3"] = { Light = "CODE3",},
                         },
                     }, 
+                    	SubMaterials = {
+                        ["sentry/shared/glass"] = "sentry/sleepy_police/glass_black",
+                    },
                     
                     
                  },
@@ -726,7 +733,7 @@ VEHICLE.Equipment = {
         Category = "rear window",
         Options = {
            {
-              Option = "intersectors",
+              Option = "m4s",
               Components = {
                  
                  
@@ -745,23 +752,138 @@ VEHICLE.Equipment = {
        {
         Category = "tailgate",
         Options = {
+             
+
+           
            {
+              Option = "2, licence plate",
+              Components = {
+                  {
+                     Inherit = "@front2",
+                     Component = "photon_whe_ion_surface",
+                      Segments = {
+                        BRAKE = {
+                            FrameDuration = 1/20,
+                            Frames = {
+                                [1] = "[R] 1",
+                            },
+                            Sequences = {
+                                ["brake"] = sequence():SetTiming(1/30):DoubleFlash(1):Steady( 1, 1 ):SetRepeating(false),
+                            }
+                        },
+                     },
+                    InputActions = {
+                         ["Vehicle.Brake"] = {
+							["BRAKE"] = { BRAKE = "brake" },
+						},
+                       
+                    }, 
+                  	Position = Vector( 4, -131.25, 36.65 ),
+						Angles = Angle( 0, 180, -1 ),
+						Scale = .7,
+                 
+                  },
+                  {
+                     Inherit = "@front1",
+                     Component = "photon_whe_ion_surface",
+                      Segments = {
+                        BRAKE = {
+                            FrameDuration = 1/20,
+                            Frames = {
+                                [1] = "[R] 1",
+                            },
+                            Sequences = {
+                                ["brake"] = sequence():SetTiming(1/30):DoubleFlash(1):Steady( 1, 1 ):SetRepeating(false),
+                            }
+                        },
+                     },
+                    InputActions = {
+                         ["Vehicle.Brake"] = {
+							["BRAKE"] = { BRAKE = "brake" },
+						},
+                       
+                    }, 
+                   	Position = Vector( -4, -131.25, 36.65 ),
+						Angles = Angle( 0, 180, -1 ),
+						Scale = .7,
+                 
+                  },
+                
+                 
+                 
+              }
+           },
+          {
+              Option = "4, under, smoked",
+              Components = {
+                {
+                     Inherit = "@front2",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( 18, -128.6, 38.3 ),
+						Angles = Angle( -.3, 180, 0 ),
+						Scale = .84,
+                         SubMaterials = {
+                            ["sentry/props/ion_photon/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+                            ["sentry/props/ion_photon/ion"] = "sentry/sleepy_police/ion_black",
+                        },
+                 
+                  },
+                   {
+                     Inherit = "@front2",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( 28, -128.6, 38.3 ),
+						Angles = Angle( -.3, 180, 0 ),
+						Scale = .84,
+                         SubMaterials = {
+                            ["sentry/props/ion_photon/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+                            ["sentry/props/ion_photon/ion"] = "sentry/sleepy_police/ion_black",
+                        },
+                 
+                  },
+                  {
+                     Inherit = "@front1",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( -18, -128.6, 38.3 ),
+						Angles = Angle( .6, 180, 0 ),
+						Scale = .84,
+                         SubMaterials = {
+                            ["sentry/props/ion_photon/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+                            ["sentry/props/ion_photon/ion"] = "sentry/sleepy_police/ion_black",
+                        },
+                  },
+                  {
+                     Inherit = "@front1",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( -28, -128.6, 38.3 ),
+						Angles = Angle( .6, 180, 0 ),
+						Scale = .84,
+                         SubMaterials = {
+                            ["sentry/props/ion_photon/ion_glass"] = "sentry/sleepy_police/ion_glass_black",
+                            ["sentry/props/ion_photon/ion"] = "sentry/sleepy_police/ion_black",
+                        },
+                  },
+                 
+                 
+              }
+           },
+             {
               Option = "2, under",
               Components = {
+                {
+                     Inherit = "@front2",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( 25, -128.6, 38.3 ),
+						Angles = Angle( -.6, 180, 0 ),
+						Scale = .84,
                  
-                 
-              }
-           },
-           {
-              Option = "4, under",
-              Components = {
-                 
-                 
-              }
-           },
-            {
-              Option = "2, beside logo",
-              Components = {
+                  },
+                  {
+                     Inherit = "@front1",
+                     Component = "photon_whe_ion",
+                  	Position = Vector( -25, -128.6, 38.3 ),
+						Angles = Angle( .6, 180, 0 ),
+						Scale = .84,
+                  },
                  
                  
               }
@@ -837,6 +959,8 @@ VEHICLE.Equipment = {
                                },
                               InputActions = {
                                   ["Emergency.Warning"] = {
+                                    ["MODE1"] = { },
+                                     ["MODE2"] = { },
                                       ["MODE3"] = { Light = "CODE3",},
                                   },
                                   ["Emergency.Directional"] = {
@@ -876,7 +1000,7 @@ VEHICLE.Equipment = {
                                           [2] = "[B] 2 4 6 8",
                                       },
                                       Sequences = {
-                                          ["CODE3"] = sequence():SetTiming(1/40):Steady(1, 4):Off(1):Steady(1, 5):Off(1):Steady(1, 5):Steady(2, 4):Off(1):Steady(2, 5):Off(1):Steady(2, 5),
+                                          ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2),
                                       }
                                   },
                                   TA = {
@@ -916,6 +1040,8 @@ VEHICLE.Equipment = {
                                },
                               InputActions = {
                                   ["Emergency.Warning"] = {
+                                    ["MODE1"] = { },
+                                     ["MODE2"] = { },
                                       ["MODE3"] = { Light = "CODE3",},
                                   },
                                   ["Emergency.Directional"] = {
@@ -1021,6 +1147,9 @@ VEHICLE.Equipment = {
                  
               }
            },
+            {
+              Option = "none",
+           },
            
         },
       },
@@ -1102,36 +1231,41 @@ VEHICLE.Equipment = {
        {
         Category = "Antennas",
         Options = {
+           
            {
-              Option = "v1",
+              Option = "v1 (lb)",
                Props = {
-                {
-                    Model = "models/w4nou/antenne_antares.mdl",
-                Position = Vector( 0, 1, 73),
-                    Angles = Angle( 0, 180, 5.5 ),
-                    Color = Color( 300, 300, 300 ),
-                    Scale = .8
-                },
-
-                {
-                    Model = "models/schmal/antenna_pod_trimode.mdl",
-                    Position = Vector( 0, -45, 72.58 ),
-                    Angles = Angle( -7.6, 90, 0 ),
-                    Color = Color( 32, 32, 32 ),
-                    Scale = 0.5
-                },
-                {
-                    Model = "models/schmal/antenna_absc.mdl",
-                    Position = Vector( -5, -35, 73.5 ),
-                    Angles = Angle( -0, 01, 04 ),
-                    Scale = 1
-                },
+             {
+						Model = "models/schmal/antenna_lojack.mdl",
+						Position = Vector( -4.5, -30, 91.9 ),
+						Angles = Angle( -0.5, 0, 0.5 ),
+						Scale = 1
+					},
+					
+					{
+						Model = "models/schmal/antenna_pod_navigator.mdl",
+						Position = Vector( 4.5, -30, 92.25 ),
+						Angles = Angle( -2, 90, 0 ),
+						Scale = 1
+					},
+					{
+						Model = "models/sentry/antenna.mdl",
+						Position = Vector( -0, -0, 91.8 ),
+						Angles = Angle( 0, 0, 0 ),
+						Scale = 1
+					},
+					{
+						Model = "models/schmal/antenna_absc.mdl",
+						Position = Vector( 0, -30, 92.2 ),
+						Angles = Angle( 0, 0, 01 ),
+						Scale = 1
+					},
 			
             
 				}
            },
            {
-              Option = "v2",
+              Option = "v2 (slk)",
                Props = {
                 {
                     Model = "models/schmal/antenna_pod_navigator.mdl",
@@ -1164,6 +1298,28 @@ VEHICLE.Equipment = {
             
 				}
            },
+            {
+              Option = "v3 (slk)",
+               Props = {
+                 {
+						Model = "models/anemolis/props/antennas/anemolis_antenna3.mdl",
+						Position = Vector(-4.5, 010, 91.89 ),
+						Angles = Angle( -0.5, 0, 0.5 ),
+						Scale = 1
+					},
+					
+					{
+						Model = "models/schmal/antenna_pod_navigator.mdl",
+						Position = Vector(13.5, 035, 89.8 ),
+						Angles = Angle( 11, 90, 0  ),
+                      	Color = Color( 32, 32, 32 ),
+						Scale = 0.7
+					},
+			
+            
+				}
+           },
+            
            
         },
       },
@@ -1199,7 +1355,27 @@ VEHICLE.Equipment = {
                         },
                         
                     },
-                }
+                     {
+					Component = "siren_prototype",
+					Position = Vector(0, 0, 0),
+					Angles = Angle(0, 0, 0),
+					Scale = 0,
+					Siren = 1
+				 },
+                },
+                 Props = {
+					{
+						-- Adds realistic window tinting and is skinnable
+						Model = "models/schmal/smf15018_glass.mdl",
+						Position = Vector( 0, 0, 0 ),
+						Angles = Angle( 0, 180, 0 ),
+						Scale = 1,
+					}
+				},
+				SubMaterials = {
+					{ Id = 23, Material = "photon/common/blank" },
+				},
+
 			}
 		}
 	},

@@ -1,9 +1,9 @@
 if (Photon2.ReloadVehicleFile()) then return end
 local VEHICLE = Photon2.LibraryVehicle()
 
-VEHICLE.Title 		= "2018 fpiu"
+VEHICLE.Title 		= "2000 cvpi"
 
-VEHICLE.Vehicle		= "sm16fpiu"
+VEHICLE.Vehicle		= "cvpi_hd_98_sgm"
 
 VEHICLE.Category 	= "Photon 2: alberta sheriffs"
 
@@ -15,16 +15,16 @@ local sequence = Photon2.SequenceBuilder.New
 
 VEHICLE.Equipment = {
     {
-        Category = "lightbar",
+        Category = "primary",
         Options = {
            {
-              Option = "legacy act flash",
+              Option = "lightbar",
               Components = {
                  {
                    
-                    Component = "photon_whe_legacy_48",
+                    Component = "photon_whe_edge",
                     Position = Vector( 0, -18, 75.7 ),
-                    Angles = Angle( .3, 90, 0 ),
+                    Angles = Angle( .3, -90, 0 ),
                     Scale = 1,
                     Bones = {
                         ["clamp_norm_left"] = {  Vector(0.6, -0, -.30), Angle(5.6, -0.9, 0), 1 },

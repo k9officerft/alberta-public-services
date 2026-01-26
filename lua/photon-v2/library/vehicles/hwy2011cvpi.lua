@@ -36,8 +36,8 @@ VEHICLE.Equipment = {
                         Light = {
                             FrameDuration = 1/20,
                             Frames = {
-                                [1] = "[B] 1 3 5 7 9 11 13 15 19 21 23 25 ",
-                                [2] = "[R] 2 4 6 8 10 12 14 16 20 22 24 26 ",
+                                [1] = "[R] 1 3 5 7 9 11 13 15 19 21 23 25 ",
+                                [2] = "[B] 2 4 6 8 10 12 14 16 20 22 24 26 ",
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2):Do(2):Add(1,1,1,2,2,2):Do(4),
@@ -57,15 +57,15 @@ VEHICLE.Equipment = {
                         TA = {
                            FrameDuration = 1/8,
                            Frames = {
-                               [1] = "[B] 15 [R] 16 ",
-                               [2] = "[B] 13 [R] 14",
-                               [3] = "[B] 11 [R] 12",
-                               [4] = "[R] 12",
-                               [5] = "[R] 14",
-                               [6] = "[R] 16",
-                               [7] = "[B] 15",
-                               [8] = "[B] 13",
-                               [9] = "[B] 11",
+                               [1] = "[R] 15 [B] 16 ",
+                               [2] = "[R] 13 [B] 14",
+                               [3] = "[R] 11 [B] 12",
+                               [4] = "[B] 12",
+                               [5] = "[B] 14",
+                               [6] = "[B] 16",
+                               [7] = "[R] 15",
+                               [8] = "[R] 13",
+                               [9] = "[R] 11",
                              
                                
                            },
@@ -118,8 +118,8 @@ VEHICLE.Equipment = {
                         Light = {
                             FrameDuration = 1/20,
                             Frames = {
-                                [1] = "[B] 1 3 5 7 9 11 13 15 19 21 23 25 ",
-                                [2] = "[R] 2 4 6 8 10 12 14 16 20 22 24 26 ",
+                                [1] = "[R] 1 3 5 7 9 11 13 15 19 21 23 25 ",
+                                [2] = "[B] 2 4 6 8 10 12 14 16 20 22 24 26 ",
                             },
                             Sequences = {
                                 ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 2):Do(2):Add(1,1,1,2,2,2):Do(4),
@@ -138,16 +138,16 @@ VEHICLE.Equipment = {
                         },
                         TA = {
                            FrameDuration = 1/8,
-                           Frames = {
-                               [1] = "[B] 15 [R] 16 ",
-                               [2] = "[B] 13 [R] 14",
-                               [3] = "[B] 11 [R] 12",
-                               [4] = "[R] 12",
-                               [5] = "[R] 14",
-                               [6] = "[R] 16",
-                               [7] = "[B] 15",
-                               [8] = "[B] 13",
-                               [9] = "[B] 11",
+                          Frames = {
+                               [1] = "[R] 15 [B] 16 ",
+                               [2] = "[R] 13 [B] 14",
+                               [3] = "[R] 11 [B] 12",
+                               [4] = "[B] 12",
+                               [5] = "[B] 14",
+                               [6] = "[B] 16",
+                               [7] = "[R] 15",
+                               [8] = "[R] 13",
+                               [9] = "[R] 11",
                              
                                
                            },
@@ -183,11 +183,16 @@ VEHICLE.Equipment = {
       {
         Category = "front",
         Options = {
+           
            {
               Option = "no pushbar",
+               BodyGroups = {
+					{ BodyGroup = "pushbar", Value = 0},
+                   
+				},
               Components = {
                  {
-                     Name = "@mirror1",
+                  
                      Component = "photon_whe_ion_surface",
                      Position = Vector( 47, 30.9, 54 ),
                      Angles = Angle( 0, -24, 00 ),
@@ -195,7 +200,7 @@ VEHICLE.Equipment = {
                  
                   },
                   {
-                     Inherit = "@mirror1",
+                  
                      Component = "photon_whe_ion_surface",
                      Position = Vector( -47, 30.9, 54 ),
                      Angles = Angle( 0, 24, 00 ),
@@ -205,23 +210,73 @@ VEHICLE.Equipment = {
                  
               }
            },
-             {
+               {
               Option = "pushbar",
+                 BodyGroups = {
+					{ BodyGroup = "pushbar", Value = 1},
+                   
+				},
               Components = {
                  {
-                     Name = "@mirror1",
-                     Component = "photon_whe_ion_surface",
-                     Position = Vector( 47, 30.9, 54 ),
-                     Angles = Angle( 0, -24, 00 ),
-                     Scale = 0.8
+                    
+                     Component = "photon_whe_dominator_2",
+                     Position = Vector( -10, 121, 26.9),
+                     Angles = Angle( 0,180, 0 ),
+                    Scale = 0.9,
+                    	BodyGroups = {
+							["Bracket"] = 3,
+							["Wires"] = 2,
+							},
+                              Segments = {
+                        Light = {
+                            FrameDuration = 1/20,
+                            Frames = {
+                                [1] = "[R] 1 2",
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1, 0),
+                            
+                            }
+                        },
+                     },
+                    InputActions = {
+                        ["Emergency.Warning"] = {
+                            ["MODE1"] = { },
+                            ["MODE2"] = {Light = "CODE3", },
+                            ["MODE3"] = { Light = "CODE3",},
+                        },
+                    }, 
                  
                   },
                   {
-                     Inherit = "@mirror1",
-                     Component = "photon_whe_ion_surface",
-                     Position = Vector( -47, 30.9, 54 ),
-                     Angles = Angle( 0, 24, 00 ),
-                     Scale = 0.8
+                   
+                     Component = "photon_whe_dominator_2",
+                     Position = Vector( 10, 121, 26.9),
+                     Angles = Angle( 0,180, 0 ),
+                    Scale = 0.9,
+                    	BodyGroups = {
+							["Bracket"] = 3,
+							["Wires"] = 2,
+							},
+                              Segments = {
+                        Light = {
+                            FrameDuration = 1/20,
+                            Frames = {
+                                [1] = "[B] 1 2",
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(0, 1),
+                            
+                            }
+                        },
+                     },
+                    InputActions = {
+                        ["Emergency.Warning"] = {
+                            ["MODE1"] = { },
+                            ["MODE2"] = {Light = "CODE3", },
+                            ["MODE3"] = { Light = "CODE3",},
+                        },
+                    }, 
                  
                   },
                  
@@ -237,7 +292,7 @@ VEHICLE.Equipment = {
               Option = "ions and inters",
               Components = {
                  {
-                     Name = "@mirror1",
+               
                      Component = "photon_whe_ion_surface",
                      Position = Vector( 47, 30.9, 54 ),
                      Angles = Angle( 0, -24, 00 ),
@@ -245,7 +300,7 @@ VEHICLE.Equipment = {
                  
                   },
                   {
-                     Inherit = "@mirror1",
+                  
                      Component = "photon_whe_ion_surface",
                      Position = Vector( -47, 30.9, 54 ),
                      Angles = Angle( 0, 24, 00 ),
@@ -265,7 +320,7 @@ VEHICLE.Equipment = {
               Option = "ions and inters",
               Components = {
                  {
-                     Name = "@mirror1",
+                  
                      Component = "photon_whe_ion_surface",
                      Position = Vector( 47, 30.9, 54 ),
                      Angles = Angle( 0, -24, 00 ),
@@ -273,7 +328,7 @@ VEHICLE.Equipment = {
                  
                   },
                   {
-                     Inherit = "@mirror1",
+                  
                      Component = "photon_whe_ion_surface",
                      Position = Vector( -47, 30.9, 54 ),
                      Angles = Angle( 0, 24, 00 ),

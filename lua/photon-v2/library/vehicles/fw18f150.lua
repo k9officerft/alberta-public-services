@@ -24,9 +24,67 @@ VEHICLE.BodyGroups = {
 	["Towbar"] = 0,
 	["Responder Badge"] = 0,
 	["Pushbar"] = 0,
+
 }
 
+-- mat_reloadmaterial K9_alberta_fw_18f150  best command oat
 
+local livery1 = PhotonMaterial.New({
+	Name = "K9_alberta_fw_18f150",
+	Shader = "VertexLitGeneric",
+	Parameters = {
+		["$basetexture"] = "k9officerft/liveries/18_f150_sm/18f150fw1.png",
+		["$bumpmap"] = "photon/common/flat",
+		
+		["$envmap"] = "env_cubemap",
+		["$envmaptint"] = Vector( 0.3, 0.3, 0.35 ),
+		["$envmapfresnel"] = 1,
+
+		["$phong"] = 1,
+		["$phongboost"] = 15,
+		["$phongexponent"] = 3,
+		["$phongfresnelranges"] = Vector( 0.22, 0.2, 2 ),
+
+		["$rimlight"] = 1,
+		["$rimlightexponent"] = 2,
+		["$rimlightboost"] = 1,
+		["$rimmask"] = 1,
+
+		["$phongexponenttexture"] = "photon/common/flat_exp",
+		["$basemapluminancephongmask"] = 1,
+		["$phongalbedotint"] = 1,
+
+		["$nodecal"] = 1,
+	}
+})
+local livery2 = PhotonMaterial.New({
+	Name = "K9_alberta_fw_18f150_old",
+	Shader = "VertexLitGeneric",
+	Parameters = {
+		["$basetexture"] = "k9officerft/liveries/18_f150_sm/18f150fw2.png",
+		["$bumpmap"] = "photon/common/flat",
+		
+		["$envmap"] = "env_cubemap",
+		["$envmaptint"] = Vector( 0.3, 0.3, 0.35 ),
+		["$envmapfresnel"] = 1,
+
+		["$phong"] = 1,
+		["$phongboost"] = 15,
+		["$phongexponent"] = 3,
+		["$phongfresnelranges"] = Vector( 0.22, 0.2, 2 ),
+
+		["$rimlight"] = 1,
+		["$rimlightexponent"] = 2,
+		["$rimlightboost"] = 1,
+		["$rimmask"] = 1,
+
+		["$phongexponenttexture"] = "photon/common/flat_exp",
+		["$basemapluminancephongmask"] = 1,
+		["$phongalbedotint"] = 1,
+
+		["$nodecal"] = 1,
+	}
+})
 
 VEHICLE.Equipment = {
     {
@@ -45,10 +103,8 @@ VEHICLE.Equipment = {
                     Angles = Angle( 0, 90, 0 ),
                     Scale = 1,
                      Bones = {
-                        ["clamp_left"] = {  Vector(0.2, -0, -.70), Angle(2, -0, 0), 1 },
-                        ["clamp_right"] = { Vector(-0.2, -0, -.70), Angle(-2, 0, 0), 1 },
-                        ["foot_left"] = {  Vector(-2.4, 0, .2), Angle(8, 0, 0), 1 },
-                        ["foot_right"] = { Vector(2.4, 0, .2), Angle(-8, 0, 0), 1 },
+                       
+                       
                     },
                     BodyGroups = {
 						["Feet"] = 2,
@@ -753,6 +809,25 @@ VEHICLE.Equipment = {
                 },
 				SubMaterials = {
 					{ Id = 23, Material = "photon/common/blank" },
+				},
+			}
+		}
+	},
+      {
+		Category = "livery",
+		Options = {
+			{
+				Option = "new",
+				
+				SubMaterials = {
+					{ Id = 29, Material = livery1.MaterialName }
+				},
+			},
+            {
+				Option = "old",
+				
+				SubMaterials = {
+					{ Id = 29, Material = livery2.MaterialName }
 				},
 			}
 		}

@@ -12,7 +12,7 @@ VEHICLE.Author		= "k9, datedgore44, goodmansamm"
 local sequence = Photon2.SequenceBuilder.New
 
 VEHICLE.BodyGroups = {
-	["Wheels"] = 3,
+	["Wheels"] = 2,
 	["Grille"] = 0,
     ["Bed"] = 3,
 	["Front Bumper"] = 0,
@@ -25,6 +25,34 @@ VEHICLE.BodyGroups = {
 	["Responder Badge"] = 0,
 	["Pushbar"] = 0,
 
+}
+
+VEHICLE.Siren = { 
+	-- This an example of using mixed siren tones (also a real-world recreation)
+	[1] = {
+		T1 = "whelen_gamma_new/wail",
+		T2 = "whelen_gamma_new/yelp",
+		T3 = "whelen_gamma_new/piercer",
+        T4 = "whelen_gamma_new/hilo",
+		AIR = "whelen_gamma_new/airhorn",
+		MAN = "whelen_gamma_new/wail",
+	},
+	[2] = {
+    	T1 = "fedsig_pathfinder_ssp/wail",
+		T2 = "fedsig_pathfinder_ssp/yelp",
+		T3 = "fedsig_pathfinder_ssp/priority",
+        T4 = "fedsig_pathfinder_ssp/hilo",
+		AIR = "fedsig_pathfinder_ssp/airhorn",
+		MAN = "fedsig_pathfinder_ssp/manual",
+	},
+   [3] = {
+		T1 = "sos_nergy400/wail",
+		T2 = "sos_nergy400/yelp",
+		T3 = "sos_nergy400/piercer",
+        T4 = "sos_nergy400/hilo",
+		AIR = "sos_nergy400/airhorn",
+		MAN = "sos_nergy400/manual",
+	},
 }
 
 -- mat_reloadmaterial K9_alberta_fw_18f150  best command oat
@@ -307,6 +335,62 @@ VEHICLE.Equipment = {
          
 			}
            },
+		    {
+              Option = "nfuse placeholder",
+              Components = {
+                 {
+                   
+                    Component = "photon_sos_nforce_54",
+                    Position = Vector( 0, -47.5, 95. ),
+                    Angles = Angle( 0, 0, 0 ),
+                    Scale = 1,
+                    BodyGroups = {
+									 ["feet"] = 1,
+						},
+
+                   
+                     Segments = {
+                        Light = {
+                            FrameDuration = 1/20,
+                            Frames = {
+                                 [1] = "[R] 1 2 4 6 8 10 12 14 16 18 20 22 24 26",
+                                 [2] = "[B] 1 3 5 7 9 11 13 15 17 19 21 23 25 26",
+                                [3] = "[B] 1 3 5 7 9 11 13 15 17 19 21 23 25 26 [R]  2 4 6 8 10 12 14 16 18 20 22 24 ",
+                              
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/20):QuintFlash( 2, 1 )
+                            }
+                        },
+                    },
+                    InputActions = {
+                        ["Emergency.Warning"] = {
+                            ["MODE1"] = {},
+                            ["MODE2"] = {},
+                            ["MODE3"] = { Light = "CODE3", },
+                        },
+                    },
+                    
+                 },
+                 
+              },
+			  Props = {
+					
+              	{
+				Model = "models/supermighty/props/backrack_lightbarmount.mdl",
+				Position = Vector( -20, -47.7, 91.75),
+				Angles = Angle( 0, 90, 0 ),
+				Scale = 1.02
+			    },
+			    {
+				Model = "models/supermighty/props/backrack_lightbarmount.mdl",
+               	Position = Vector( 20, -47.7, 91.75),
+                Angles = Angle( 0, 90, 0 ),
+				Scale = 1.02
+			    },
+         
+			}
+           },
            
         },
       },
@@ -381,6 +465,9 @@ VEHICLE.Equipment = {
 	  {
         Category = "pushbar + mirrors",
         Options = {
+
+
+            
            {
               Option = "tir3",
               Components = {
@@ -502,6 +589,122 @@ VEHICLE.Equipment = {
                  
               }
            },
+            {
+              Option = "micropulse 3s",
+              Components = {
+                  {
+                   
+                  Component = "k9p2_fs_mpulse_3",
+                  Position = Vector( -12, 132.7, 52.),
+                  Angles = Angle( 00, 90, 0 ),
+                  Scale = 1,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[R] 1 2",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/30):FlashHold(1, 3, 5):FlashHold(0, 3, 5)
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+                    
+                 },
+				  {
+                   
+                    Component = "k9p2_fs_mpulse_3",
+                    Position = Vector( 12, 132.7, 52.),
+                    Angles = Angle( 00, 90, 0 ),
+                    Scale = 1,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[B] 1 2",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/30):FlashHold(0, 3, 5):FlashHold(1, 3, 5),
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+
+                    
+                 },
+				  {
+                   
+                Component = "k9p2_fs_mpulse_3",
+                Position = Vector( 54, 56.3, 64.7 ),
+                Angles = Angle(-2, 71, -3   ),
+                  Scale = 1,
+                     Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[B] 1 2 ",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/30):FlashHold(0, 3, 5):FlashHold(1, 3, 5),
+                                 }
+                             },
+                         },
+                         InputActions = {   
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+                    
+                 },
+				  {
+                   
+                    Component = "k9p2_fs_mpulse_3",
+                    Position = Vector( -54, 56.3, 64.7 ),
+                Angles = Angle(-2, 109, 3   ),
+                    Scale = 1,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[R] 1 2",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/30):FlashHold(1, 3, 5):FlashHold(0, 3, 5)
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+
+                    
+                 },
+                 
+              }
+           },
 		   {
               Option = "impaxx",
               Components = {
@@ -618,6 +821,124 @@ VEHICLE.Equipment = {
                  
               }
            },
+		    {
+              Option = "mpowers intersectors",
+              Components = {
+                  {
+                   
+                  Component = "photon_sos_mpf4",
+                  Position = Vector( -12, 132.65, 52.),
+                  Angles = Angle( 00, 90, 0 ),
+                  Phase = 180,
+                  Scale = 1,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[R] 1 ",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1):AppendPhaseGap(),
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+                    
+                 },
+				  {
+                   
+                    Component = "photon_sos_mpf4",
+                    Position = Vector( 12,132.65, 52.),
+                    Angles = Angle( 00, 90, 0 ),
+                    Scale = 1,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[B] 1 ",
+
+                                
+                            },
+                            Sequences = {
+                                 ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1):AppendPhaseGap(),
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+
+                    
+                 },
+				  {
+                   
+                Component = "photon_sos_intersector_surf",
+                Position = Vector( 55, 56.78, 64.7 ),
+                Angles = Angle(-2, -19.8, 1 ),
+                  Scale = 1,
+                     Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[B] 1 2 3",
+
+                                
+                            },
+                            Sequences = {
+                                ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1):AppendPhaseGap(),
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+                    
+                 },
+				  {
+                   
+                    Component = "photon_sos_intersector_surf",
+                    Position = Vector( -55, 56.78, 64.7 ),
+                    Angles = Angle(2, 19.8, 1 ),
+                    Scale = 1,
+                    Phase = 180,
+                    Segments = {
+                        Light = {
+                            Frames = {
+                                [1] = "[R] 1 2 3",
+
+                                
+                            },
+                            Sequences = {
+                                 ["CODE3"] = sequence():SetTiming(1/17):TripleFlash(1):AppendPhaseGap(),
+                                 }
+                             },
+                         },
+                         InputActions = {
+                             ["Emergency.Warning"] = {
+                                 ["MODE1"] = {},
+								["MODE2"] = {Light = "CODE3",},
+                                 ["MODE3"] = { Light = "CODE3",  },
+                             },
+                         },
+
+                    
+                 },
+                 
+              }
+           },
            
         },
       },
@@ -625,7 +946,13 @@ VEHICLE.Equipment = {
         Category = "tailgate",
 		
         Options = {
-			
+
+			{
+              Option = "None",
+              Components = {
+                 
+              }
+           },
            {
               Option = "vertex",
               Components = {
@@ -746,12 +1073,7 @@ VEHICLE.Equipment = {
                  
               }
            },
-		   {
-              Option = "None",
-              Components = {
-                 
-              }
-           },
+		   
            
         },
       },
@@ -770,16 +1092,74 @@ VEHICLE.Equipment = {
 				 },
                  {
 						-- Adds realistic window tinting and is skinnable
-						Model = "models/schmal/smf15018_glass.mdl",
-						Position = Vector( 0, 0, 0 ),
-						Angles = Angle( 0, 180, 0 ),
-						Scale = 1,
-					}
+				Model = "models/schmal/smf15018_glass.mdl",
+				Position = Vector( 0, 0, 0 ),
+				Angles = Angle( 0, 180, 0 ),
+				Scale = 1,
+				},
+                {
+				Model = "models/sprops/cuboids/height06/size_1/cube_6x6x6.mdl",
+				Position = Vector( -27, -43.5, 93.15),
+				Angles = Angle( 0, 90, 0 ),
+				Scale = Vector( 2, .9, 0.02 ),
+                SubMaterials = {
+							--adjust this one to adjust the skin
+							[0] = "models/supermighty/f150_supercab/black",
+						},
+			      },
+                  {
+				Model = "models/anemolis/props/antennas/anemolis_antenna7.mdl",
+				Position = Vector( -25.4, -39, 94.2),
+				Angles = Angle( 0, 90, 0 ),
+				Scale = 1
+			    },
+                {
+				Model = "models/sentry/props/jp/antenna.mdl",
+				Position = Vector( -28, -39, 93.7),
+				Angles = Angle( 0, 90, 0 ),
+				Scale = 1
+			    },
+                {
+				Model = "models/schmal/antenna_pod_navigator.mdl",
+				Position = Vector( 21, -35, 91.5 ),
+				Angles = Angle( -6, 90, 0 ),
+				Scale = 1,
+                Color = Color( 32, 32, 32 ),
+				},
+                {
+				Model = "models/sprops/cuboids/height06/size_1/cube_6x6x6.mdl",
+				Position = Vector( 40.85, 85, 60.5),
+				Angles = Angle( 90, 92.5, 90 ),
+				Scale = Vector(.2, .2, 0.02 ),
+                SubMaterials = {
+							--adjust this one to adjust the skin
+							[0] = "models/supermighty/f150_supercab/black",
+						},
+			      },
+                  {
+				Model = "models/sprops/cuboids/height06/size_1/cube_6x6x6.mdl",
+				Position = Vector( 41.39, 85, 61.05),
+				Angles = Angle( 0, 92.5, 0 ),
+				Scale = Vector(.2, .2, 0.02 ),
+                SubMaterials = {
+							--adjust this one to adjust the skin
+							[0] = "models/supermighty/f150_supercab/black",
+						},
+			      },
+                   {
+				Model = "models/schmal/antenna_vhf_1.mdl",
+				Position = Vector( 41.39, 85, 61.05),
+				Angles = Angle( 0, 92.5, 0 ),
+				Scale = Vector(.7, .7, 0.7 ),
+			      },
+                
             
              
          
 				},
                   Components = {
+
+                     
                 {
                         Component = "photon_standard_smf15018",
                         Segments = {
@@ -835,6 +1215,53 @@ VEHICLE.Equipment = {
 	{
 		Category = "back rack",
 		Options = {
+            {
+				Option = "tools + lights (activate with full scene)",
+                 Components = {
+
+                     {
+                   
+                    Component = "k9p2_sos300l",
+                	Position = Vector( 34.4, -47.8, 89),
+				Angles = Angle( 0, 90,70 ),
+				Scale = .8,
+                    
+                 },
+                  {
+                   
+                    Component = "k9p2_sos300l",
+                	Position = Vector( -34.4, -47.8, 89),
+				Angles = Angle( 0, 90,-70 ),
+				Scale = .8,
+                    
+                 },
+                },
+				Props = {
+					
+				{
+				Model = "models/b405/the_forest/weapons/modern_axe.mdl",
+				Position = Vector( 06, -48.5, 85),
+				Angles = Angle( -90, 0, 0 ),
+				Scale = 1.1,
+				},
+				{
+				Model = "models/b405/the_forest/weapons/plane_axe.mdl",
+				Position = Vector( 29, -48.4, 79),
+				Angles = Angle( -90, 0, 0 ),
+				Scale = 1.1,
+				},
+				{
+				Model = "models/weapons/nmrih/crowbar.mdl",
+				Position = Vector( -22, -48.4, 79),
+				Angles = Angle( -0, 90, 90 ),
+				Scale = 1.1,
+				},
+
+            
+             
+        
+				}
+			},
 			{
 				Option = "tools",
 				Props = {
@@ -862,33 +1289,7 @@ VEHICLE.Equipment = {
          
 				}
 			},
-			{
-				Option = "tools + lights (activate with full scene)",
-				Props = {
-					
-				{
-				Model = "models/b405/the_forest/weapons/modern_axe.mdl",
-				Position = Vector( 06, -48.5, 85),
-				Angles = Angle( -90, 0, 0 ),
-				Scale = 1.1,
-				},
-				{
-				Model = "models/b405/the_forest/weapons/plane_axe.mdl",
-				Position = Vector( 29, -48.4, 79),
-				Angles = Angle( -90, 0, 0 ),
-				Scale = 1.1,
-				},
-				{
-				Model = "models/weapons/nmrih/crowbar.mdl",
-				Position = Vector( -22, -48.4, 79),
-				Angles = Angle( -0, 90, 90 ),
-				Scale = 1.1,
-				},
-            
-             
-        
-				}
-			},
+			
 			{
 				Option = "lights (activate with full scene)",
 				Props = {
@@ -1275,7 +1676,61 @@ VEHICLE.Equipment = {
          
 			}
 		},
+		
         
 		}
 	},
+	 {
+         Category = "Siren",
+         Options = {
+            {
+               Option = "whel",
+               Components = {
+                
+                  {
+                     Component = "siren_prototype",
+                     Position = Vector(0, 0, 0),
+                     Angles = Angle(0, 0, 0),
+                     Scale = 0,
+					  Siren = 1,
+                     
+					  
+                      
 }
+                  },
+               },
+			   {
+               Option = "fedsig",
+               Components = {
+                
+                  {
+                     Component = "siren_prototype",
+                     Position = Vector(0, 0, 0),
+                     Angles = Angle(0, 0, 0),
+                     Scale = 0,
+					  Siren = 2,
+                     
+					  
+                      
+}
+                  },
+               },
+			   {
+               Option = "soundoff",
+               Components = {
+                
+                  {
+                     Component = "siren_prototype",
+                     Position = Vector(0, 0, 0),
+                     Angles = Angle(0, 0, 0),
+                     Scale = 0,
+					  Siren = 3,
+                     
+					  
+                      
+}
+                  },
+               }
+            },
+         }
+      }

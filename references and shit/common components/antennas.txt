@@ -1,0 +1,5 @@
+models/anemolis/props/antennas/anemolis_antenna6.mdl
+         
+models/schmal/antenna_vhf_2.mdl
+
+models/anemolis/props/antennas/anemolis_antenna8.mdl

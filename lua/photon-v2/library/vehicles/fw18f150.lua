@@ -1200,14 +1200,14 @@ VEHICLE.Equipment = {
 				Option = "new",
 				
 				SubMaterials = {
-					{ Id = 29, Material = livery1.MaterialName }
+					{ Id = 29, Material = livery2.MaterialName }
 				},
 			},
             {
 				Option = "old",
 				
 				SubMaterials = {
-					{ Id = 29, Material = livery2.MaterialName }
+					{ Id = 29, Material = livery1.MaterialName }
 				},
 			}
 		}
